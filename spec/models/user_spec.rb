@@ -20,7 +20,7 @@ describe User do
         password: "aleluya"
       )
       expect(user.valid?).to eq(false)
-      expect(user.errors[:phone]).to eq(['is invalid'])
+      expect(user.errors[:phone]).to eq(['must be in format 1234567878'])
       # raise user.errors[:phone].inspect
     end
   end
