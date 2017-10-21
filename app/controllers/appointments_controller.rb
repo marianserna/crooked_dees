@@ -1,7 +1,11 @@
 class AppointmentsController < ApplicationController
 
+  before_action :require_logged_in
+
   def index
-    @appointment = Appointment.all
+    # Bring only the appointments for the current user
+    @appointments = current_user.appointments.all
+    # Appointment.where(user_id: current_user.id).all
   end
 
   def new

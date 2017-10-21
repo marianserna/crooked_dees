@@ -14,4 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :logged_in?
+
+  def require_logged_in
+    if !logged_in?
+      flash[:alert] = "You must log in first"
+      redirect_to new_session_url
+    end
+  end
 end
