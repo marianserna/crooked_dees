@@ -9,6 +9,7 @@ class Admin::AppointmentsController < Admin::BaseController
   def confirm
     @appointment.status = 'confirmed'
     @appointment.save!
+    @appointment.send_confirmation_sms
     flash[:notice] = "Appointment has been confirmed"
     redirect_to admin_appointments_url
   end
