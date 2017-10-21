@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :appointments
   resources :sessions, only: [:new, :create, :destroy]
+
+  # separate section of website
+  namespace :admin do
+    resources :appointments, only: [:index]
+  end
 end

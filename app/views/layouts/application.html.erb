@@ -18,6 +18,11 @@
           <li>
             <%= link_to 'My appointments', appointments_path %>
           </li>
+          <% if current_user.is_admin? %>
+            <li>
+              <%= link_to 'Admin', admin_appointments_path %>
+            </li>
+          <% end %>
           <li>
             <%= link_to 'Log out', session_path(:current_user), method: :delete %>
           </li>
