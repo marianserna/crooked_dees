@@ -7,4 +7,5 @@ class User < ApplicationRecord
 
   validates :name, :email, :phone, presence: true
   validates :email, uniqueness: true
+  validates :phone, format: /\A\d{10}\z/
 end
