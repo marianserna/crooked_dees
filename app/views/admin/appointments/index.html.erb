@@ -1,0 +1,13 @@
+<h2>Admin - Appointments</h2>
+
+<ul>
+  <% @appointments.each do |appointment| %>
+    <li>
+      <%= appointment.appointment_at %> with <%= appointment.dentist.name %>
+      <br>
+      <small>Status: <%= appointment.status %></small>
+      <br>
+      <%= link_to 'Confirm', confirm_admin_appointment_path(appointment), method: :post, class: 'btn btn-primary' %>
+    </li>
+  <% end %>
+</ul>

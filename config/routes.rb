@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   # separate section of website
   namespace :admin do
-    resources :appointments, only: [:index]
+    resources :appointments, only: [:index] do
+      # Produce admin/appointments/:id/confirm(appointment) (POST request)
+      member do
+        post :confirm
+      end
+    end
   end
 end

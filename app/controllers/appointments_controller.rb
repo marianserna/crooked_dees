@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
 
   def index
     # Bring only the appointments for the current user
-    @appointments = current_user.appointments.all
+    @appointments = current_user.appointments.order(created_at: :desc)
     # Appointment.where(user_id: current_user.id).all
   end
 
