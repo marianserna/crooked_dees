@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20171021142708) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dentist_id"], name: "index_appointments_on_dentist_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "dentists", force: :cascade do |t|

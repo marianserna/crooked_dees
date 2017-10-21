@@ -9,5 +9,8 @@ class CreateAppointments < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+
+    add_index :appointments, :user_id
+    add_index :appointments, :dentist_id
   end
 end
