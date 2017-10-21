@@ -1,6 +1,6 @@
 class Admin::AppointmentsController < Admin::BaseController
 
-  before_action :load_appointment, only: [:confirm]
+  before_action :load_appointment, only: [:confirm, :cancel]
 
   def index
     @appointments = Appointment.order(created_at: :desc)
@@ -10,6 +10,13 @@ class Admin::AppointmentsController < Admin::BaseController
     @appointment.status = 'confirmed'
     @appointment.save!
     flash[:notice] = "Appointment has been confirmed"
+    redirect_to admin_appointments_url
+  end
+
+  def cancel
+    @appointment.status = 'cancelled'
+    @appointment.save!
+    flash[:notice] = "Your appointment has been cancelled"
     redirect_to admin_appointments_url
   end
 

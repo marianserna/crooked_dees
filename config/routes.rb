@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       # Produce admin/appointments/:id/confirm(appointment) (POST request)
       member do
         post :confirm
+        post :cancel
       end
     end
   end
