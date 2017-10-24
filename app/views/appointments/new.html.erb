@@ -1,20 +1,21 @@
-<h2>New Appointment</h2>
+<div class="row justify-content-md-center new-appointment-container">
+  <div class="col-md-6">
+    <h2 class="text-center">New Appointment</h2>
 
-<%= form_for @appointment do |f| %>
+    <%= form_for @appointment do |f| %>
+      <div class="form-group">
+        <%= f.label :dentist_id %>
+        <%= f.collection_select :dentist_id, Dentist.order(:name), :id, :name, {}, class: 'form-control' %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :dentist_id %>
-    <%= f.collection_select :dentist_id, Dentist.order(:name), :id, :name, class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :appointment_at %>
+        <%= f.datetime_field :appointment_at, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :appointment_at %>
-    <%= f.datetime_field :appointment_at, class: 'form-control' %>
-  </div>
-
-
-  <div class="form-group">
-    <%= f.submit 'Save' %>
-  </div>
-
-<% end %>
+</div>

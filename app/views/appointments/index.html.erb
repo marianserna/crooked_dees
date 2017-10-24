@@ -1,15 +1,27 @@
-<h2>Appointments</h2>
+<div class="row justify-content-md-center text-center appointments-container">
+  <div class="col-md-6">
+    <h2>Your Current Appointments</h2>
 
-<%= link_to 'New Appointment', new_appointment_path %>
+    <div class="row">
+      <div class="col align-self-end mt-3">
+        <%= link_to 'New Appointment', new_appointment_path, class: 'btn btn-outline-primary' %>
+      </div>
+    </div>
 
-<h3>Your Current Appointments</h3>
-
-<ul>
-  <% @appointments.each do |appointment| %>
-    <li>
-      <%= appointment.appointment_at %> with <%= appointment.dentist.name %>
-      <br>
-      <small>Status: <%= appointment.status %></small>
-    </li>
-  <% end %>
-</ul>
+    <ul>
+      <% @appointments.each do |appointment| %>
+        <li>
+          <div class="card">
+            <div class="card-body">
+              <p>
+                <%= appointment.appointment_at.strftime('%Y-%m-%d %l:%M%p') %> with <%= appointment.dentist.name %>
+              </p>
+              <br>
+              <small class="status">Status: <%= appointment.status %></small>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

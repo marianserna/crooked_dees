@@ -1,1 +1,53 @@
 @import "bootstrap";
+@import "pages";
+@import "appointments";
+
+.home-container {
+  height: 100vh;
+  background: #FF512F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  h1, h2 {
+    color: #FFF59D;
+    position: absolute;
+    top: 25%;
+    letter-spacing: 20px;
+    font-size: 9vw;
+    font-weight: bolder;
+    text-align: center;
+    width: 100vw;
+    text-shadow: 2px 2px #333333;
+    opacity: 0.7;
+  }
+
+  h2 {
+    top: 55%;
+    z-index: 3;
+  }
+}
+
+#three-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+nav {
+  background-color: #F2C640 !important;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  ul li a {
+    color: #FFF;
+  }
+}
+
+h1 {
+  position: absolute;
+  top: 50vh;
+  letter-spacing: 20px;
+  font-size: 7rem;
+  font-weight: bolder;
+  text-align: center;
+  width: 100vw;
+}

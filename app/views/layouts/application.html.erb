@@ -5,11 +5,13 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Sanchez" rel="stylesheet">
   </head>
 
   <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar">
       <ul class="nav">
         <li class="nav-item">
           <%= link_to 'Home', root_path, { class: 'nav-link' } %>
@@ -38,6 +40,8 @@
       </ul>
     </nav>
 
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
