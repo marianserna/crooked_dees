@@ -1,14 +1,24 @@
-<h2>Admin - Appointments</h2>
+<div class="row justify-content-md-center text-center appointments-container">
+  <div class="col-md-6">
+    <h2>Admin - Appointments</h2>
 
-<ul>
-  <% @appointments.each do |appointment| %>
-    <li>
-      <%= appointment.appointment_at %> with <%= appointment.dentist.name %>
-      <br>
-      <small>Status: <%= appointment.status %></small>
-      <br>
-      <%= link_to 'Confirm', confirm_admin_appointment_path(appointment), method: :post, class: 'btn btn-primary' %>
-      <%= link_to 'Cancel', cancel_admin_appointment_path(appointment), method: :post, class: 'btn btn-danger' %>
-    </li>
-  <% end %>
-</ul>
+    <ul>
+      <% @appointments.each do |appointment| %>
+        <div class="card">
+          <div class="card-body">
+            <li>
+              <p>
+                <%= appointment.appointment_at %> with <%= appointment.dentist.name %>
+                <br>
+                <small class="status">Status: <%= appointment.status %></small>
+              </p>
+              <br>
+              <%= link_to 'Confirm', confirm_admin_appointment_path(appointment), method: :post, class: 'btn btn-outline-primary' %>
+              <%= link_to 'Cancel', cancel_admin_appointment_path(appointment), method: :post, class: 'btn btn-outline-danger' %>
+            </li>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,8 +1,10 @@
 @import "bootstrap";
-@import "pages";
+@import "common";
 @import "appointments";
 
 .home-container {
+  margin-left: -15px;
+  margin-right: -15px;
   height: 100vh;
   background: #FF512F;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */

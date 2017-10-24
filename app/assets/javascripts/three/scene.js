@@ -1,17 +1,17 @@
 function load(window, document) {
-  const container = document.getElementById('three-container');
+  var container = document.getElementById('three-container');
   if (!container) {
     return;
   }
-  let width = container.offsetWidth;
-  let height = container.offsetHeight;
-  let scene = new THREE.Scene();
-  let camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000);
+  var width = container.offsetWidth;
+  var height = container.offsetHeight;
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000);
 
-  let light = new THREE.AmbientLight( 0xA2A9AF, 1.2 ); // soft white light
+  var light = new THREE.AmbientLight( 0xA2A9AF, 1.2 ); // soft white light
   scene.add( light );
 
-  let spotLight = new THREE.SpotLight( 0xA2A9AF, 0.5 );
+  var spotLight = new THREE.SpotLight( 0xA2A9AF, 0.5 );
   spotLight.position.set( 100, 1000, 100 );
   spotLight.castShadow = true;
   spotLight.shadow.mapSize.width = 1024;
@@ -21,7 +21,7 @@ function load(window, document) {
   spotLight.shadow.camera.fov = 30;
   scene.add( spotLight );
 
-  let renderer = new THREE.WebGLRenderer({
+  var renderer = new THREE.WebGLRenderer({
     antialias: true,
     wireframe: true,
     alpha: true
@@ -32,7 +32,7 @@ function load(window, document) {
   container.appendChild( renderer.domElement );
 
   // Resize
-  window.addEventListener( 'resize', () => {
+  window.addEventListener( 'resize', function() {
     renderer.setSize( container.offsetWidth, container.offsetHeight );
     camera.aspect = container.offsetWidth / container.offsetHeight;
     camera.updateProjectionMatrix();
@@ -42,14 +42,14 @@ function load(window, document) {
 
   camera.position.z = 10;
 
-  let loader = new THREE.OBJLoader();
-  let tooth;
-  let material = new THREE.MeshPhongMaterial({color: 0xEEEBD0, side: THREE.DoubleSide});
+  var loader = new THREE.OBJLoader();
+  var tooth;
+  var material = new THREE.MeshPhongMaterial({color: 0xEEEBD0, side: THREE.DoubleSide});
 
   loader.load
   (
     '/tooth.obj',
-    ( object ) => {
+    function( object ) {
       // object.position.z = 0;
       // object.rotation.y += 90 * Math.PI / 180;
       object.rotation.x += 0.5;
@@ -65,7 +65,7 @@ function load(window, document) {
   );
 
   // Draw scene
-  let render = () => {
+  var render = function() {
     if (tooth) {
       tooth.rotation.y += 0.005;
     }
@@ -73,7 +73,7 @@ function load(window, document) {
   };
 
   // Run loop (update, render, repeat)
-  let loop = () => {
+  var loop = function() {
 
     requestAnimationFrame( loop );
 
@@ -82,6 +82,6 @@ function load(window, document) {
   loop();
 }
 
-$(() => {
+$(function() {
   load(window, document);
 })
