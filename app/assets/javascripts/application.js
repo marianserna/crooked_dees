@@ -15,4 +15,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require three/JSONLoader
+//= require three/ObjectLoader
+//= require three/OBJLoader
+//= require three/orbitControls
 //= require_tree .
